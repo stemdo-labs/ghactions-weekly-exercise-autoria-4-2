@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Deploy
         run: |
-          docker run -it -p 8080:80 dboffelli/ngnixtest
+          docker run -id -p 8080:80 dboffelli/ngnixtest
       - name: Curl                
         run: |
           curl localhost:8080
