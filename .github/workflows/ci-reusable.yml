@@ -1,4 +1,4 @@
-name: Publish to Docke
+name: Publish to Docker
 on:
   workflow_call:
     inputs: 
