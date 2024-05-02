@@ -12,19 +12,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    outputs:
-      tag: ${{ steps.get_version.outputs.tag }} #tag será un output
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Get version from package.json
         id: get_version
-        run: echo "::set-output name=tag::$(jq -r .version package.json)" #asiganr al tag la version del proyecto sacada del package.json
+        run: echo "tag=$(jq -r .version package.json)" >> $TAG #asiganr al tag la version del proyecto sacada del package.json
 
   call-ci-workflow:
     needs: build #para traer el output
     uses: ./.github/workflows/ci-reusable.yml
     with:
-      tag: ${{ needs.build.outputs.tag }} #input para el workflow reusable: la versión del proyecto
+      tag: ${{ TAG }} #input para el workflow reusable: la versión del proyecto
