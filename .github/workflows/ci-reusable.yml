@@ -37,7 +37,7 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: eperezstemdo/git-action-project-davie-elisa/angularImage
-          tags: type=sha
+          tags: ${{ inputs.tag }}
           
       - name: Build container
         uses: docker/build-push-action@v5
