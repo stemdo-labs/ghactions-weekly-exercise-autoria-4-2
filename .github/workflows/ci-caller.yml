@@ -30,7 +30,7 @@ jobs:
     needs: build #para traer el output
     uses: ./.github/workflows/ci-reusable.yml
     with:
-      tag: ${{ needs.build.tag }} #input para el workflow reusable: la versión del proyecto
+      tag: ${{ needs.build.outputs.tag }} #input para el workflow reusable: la versión del proyecto
     secrets:
       dockeruser: ${{ secrets.DOCKERHUB_USERNAME }}
       dockerpassword: ${{ secrets.DOCKERHUB_TOKEN }}
