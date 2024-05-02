@@ -5,9 +5,6 @@ on:
       tag:
         required: true
         type: string
-      image:
-        required: true
-        type: string
     secrets:
       dockeruser:
         required: true
@@ -39,7 +36,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ inputs.image }}
+          images: eperezstemdo/git-action-project-davie-elisa/angularImage
           tags: type=sha
           
       - name: Build container
