@@ -3,7 +3,7 @@ name: Crear imagen Docker
 on:
   push:
     branches: 
-      - 'dev'
+      - '*'
 permissions:
   packages: write
   contents: read
