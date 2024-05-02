@@ -18,10 +18,10 @@ jobs:
 
       - name: Get version from package.json
         id: get_version
-        run: echo "tag=$(jq -r .version package.json)" >> $TAG #asiganr al tag la version del proyecto sacada del package.json
+        run: echo "tag=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT" #asiganr al tag la version del proyecto sacada del package.json
 
   call-ci-workflow:
     needs: build #para traer el output
     uses: ./.github/workflows/ci-reusable.yml
     with:
-      tag: ${{ needs.build.outputs.TAG }} #input para el workflow reusable: la versión del proyecto
+      tag: ${{ needs.build.outputs.tag }} #input para el workflow reusable: la versión del proyecto
