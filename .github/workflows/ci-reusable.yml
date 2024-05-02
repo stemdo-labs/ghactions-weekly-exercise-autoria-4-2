@@ -29,19 +29,11 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.dockeruser }}
-          password: ${{ secrets.dockerpassword }}  
-     
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: eperezstemdo/git-action-project-davie-elisa/angularImage
-          tags: "${{ inputs.tag }}-snapshot"
-        
+          password: ${{ secrets.dockerpassword }}          
           
       - name: Build container
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: eperez/angular:${{ steps.meta.outputs.tags }}
