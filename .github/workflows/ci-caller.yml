@@ -1,0 +1,25 @@
+name: Crear imagen Docker
+
+on:
+  push:
+    branches: 
+      - 'dev'
+permissions:
+  packages: write
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get version from package.json
+        id: get_version
+        run: echo "::set-output name=tag::$(jq -r .version package.json)"
+
+  call-ci-workflow:
+    uses: ./.github/workflows/ejercicio6.yml
+    with:
+      tag: ${{ steps.get_version.outputs.tag }}
