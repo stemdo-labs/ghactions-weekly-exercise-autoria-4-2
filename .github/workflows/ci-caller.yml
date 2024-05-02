@@ -24,4 +24,4 @@ jobs:
     needs: build #para traer el output
     uses: ./.github/workflows/ci-reusable.yml
     with:
-      tag: ${{ needs.build.outputs.tag }} #input para el workflow reusable: la versión del proyecto
+      tag: ${{ needs.build.steps.get_version.outputs.tag }} #input para el workflow reusable: la versión del proyecto
