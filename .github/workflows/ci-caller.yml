@@ -25,6 +25,9 @@ jobs:
       - name: Get version from package.json
         id: get_version
         run: echo "tag=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT" #asiganr al tag la version del proyecto sacada del package.json
+        
+      - name: Print tag
+        run: echo tag
 
   call-ci-workflow:
     needs: build #para traer el output
