@@ -34,3 +34,5 @@ jobs:
     uses: ./.github/workflows/ci-reusable.yml
     with:
       tag: ${{ needs.build.steps.get_version.outputs.tag }} #input para el workflow reusable: la versión del proyecto
+      dockerusername: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerpassword: ${{ secrets.DOCKERHUB_TOKEN }}
