@@ -11,17 +11,20 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    outputs:
+      tag: ${{ steps.get_version.outputs.tag }} 
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
       - name: Get version from package.json
         id: get_version
         run: echo "::set-output name=tag::$(jq -r .version package.json)"
-      
-      - name: Print tag
-        run: echo "La etiqueta es ${{ steps.get_version.outputs.tag }}"
 
   call-ci-workflow:
+    needs: build
     uses: ./.github/workflows/ci-reusable.yml
     with:
-      tag: ${{ steps.get_version.outputs.tag }}
+      tag: ${{ needs.build.outputs.tag }} 
