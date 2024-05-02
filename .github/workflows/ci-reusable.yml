@@ -36,4 +36,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: eperez/angular:${{ steps.meta.outputs.tags }}
+          tags: eperez/angular:latest
