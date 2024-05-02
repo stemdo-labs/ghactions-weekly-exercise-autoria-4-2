@@ -12,7 +12,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    outputs:
+      tag: ${{ steps.get_version.outputs.tag }} #tag será un output
+
     steps:
+        
       - name: Checkout
         uses: actions/checkout@v4
 
