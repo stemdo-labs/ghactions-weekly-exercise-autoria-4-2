@@ -20,6 +20,6 @@ jobs:
         run: echo "::set-output name=tag::$(jq -r .version package.json)"
 
   call-ci-workflow:
-    uses: ./.github/workflows/ejercicio6.yml
+    uses: ./.github/workflows/ci-reusable.yml
     with:
       tag: ${{ steps.get_version.outputs.tag }}
