@@ -12,4 +12,4 @@ jobs:
           docker run -id -p 8080:80 dboffelli/ngnixtest
       - name: Curl                
         run: |
-          curl localhost:8080
+          curl 0.0.0.0:5000
