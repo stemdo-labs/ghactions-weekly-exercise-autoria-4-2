@@ -5,6 +5,9 @@ on:
       tag:
         required: true
         type: string
+      image:
+        required: true
+        type: string
     secrets:
       dockeruser:
         required: true
@@ -29,11 +32,19 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.dockeruser }}
-          password: ${{ secrets.dockerpassword }}          
+          password: ${{ secrets.dockerpassword }} 
+
+      
+      - name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ inputs.image }}
+          tags: type=sha
           
       - name: Build container
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: eperez/angular:latest
+          tags: ${{ inputs.tag }}
