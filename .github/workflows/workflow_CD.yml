@@ -15,8 +15,12 @@ jobs:
         #env:
           #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-      - name: Curl
-        run: |
-          curl 0.0.0.0:8080
+#      - name: Curl
+#        run: |
+#          curl 0.0.0.0:8080
+      - uses: dedene/curl@v1
+        with:
+          url: https://localhost:8080
+          args: -v
 
 
