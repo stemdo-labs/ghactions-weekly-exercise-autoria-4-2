@@ -1,4 +1,4 @@
-name: Workflow que realiza la distribución contínua
+name: Workflow CD caller
 on:
   workflow_dispatch:
     inputs:
