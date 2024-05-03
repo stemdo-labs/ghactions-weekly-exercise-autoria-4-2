@@ -9,10 +9,10 @@ jobs:
     steps:
       - name: Deploy
         run: |
-          docker run -id -p 80:80 --name nombretest dboffelli/ngnixtest
+          docker run -id -p 8080:80 --name nombretest dboffelli/ngnixtest
           docker ps
           #curl localhost:8080
-          curl localhost:80
+          #curl localhost:80
         #env:
           #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
@@ -20,6 +20,11 @@ jobs:
         #run: |
           #docker exec nombretest curl 0.0.0.0
           #curl localhost:80
+      - name: Check http status code of production site
+        uses: lakuapik/gh-actions-http-status@v1
+        with:
+          sites: '["http://localhost:8080"]'
+          expected: '[301, 200]'    
 
 
 
