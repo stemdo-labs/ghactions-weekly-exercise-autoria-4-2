@@ -18,7 +18,7 @@ jobs:
         run: |
           "docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot"
           curl localhost:8080
-  call-reusable-workflow:
-    uses: ./.github/workflows/workflow_CD_reusable.yml
-    with:
-      image-to-build: eperezstemdo/angulaimage:0.0.0-snapshot
+  #call-reusable-workflow:
+    #uses: ./.github/workflows/workflow_CD_reusable.yml
+    #with:
+      #image-to-build: eperezstemdo/angulaimage:0.0.0-snapshot
