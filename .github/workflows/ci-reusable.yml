@@ -36,13 +36,13 @@ jobs:
         uses: docker/metadata-action@v5
         with:
           images: eperezstemdo/git-action-project-davie-elisa/angulaImage
-          tags: eperezStemdo/${{ inputs.tag }}-SNAPSHOT
+          tags: eperezstemdo/${{ inputs.tag }}-SNAPSHOT
           
       - name: Build container
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: eperezStemdo/${{ inputs.tag }}-SNAPSHOT
+          tags: eperezstemdo/${{ inputs.tag }}-SNAPSHOT
 
          
