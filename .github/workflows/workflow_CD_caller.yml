@@ -11,13 +11,13 @@ permissions:
   id-token: write
   attestations: write
 jobs:
-  #build:
-    #runs-on: ubuntu-latest
-    #steps:
-      #- name: Run a multi-line script
-        #run: |
-          #echo Add other actions to build,
-          #echo test, and deploy to your project.
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy
+        run: |
+          "docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot"
+          curl localhost:8080
   call-reusable-workflow:
     uses: ./.github/workflows/workflow_CD_reusable.yml
     with:
