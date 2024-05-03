@@ -1,4 +1,4 @@
-name: Crear imagen Docke
+name: Crear imagen Docker
 
 on:
   push:
