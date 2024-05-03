@@ -13,8 +13,6 @@ jobs:
       #name: deploy
     #permissions: read-all
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
       - name: Deploy
         run: |
           "docker run -id -p 8080:8080 ${{ inputs.image-to-build }}"
