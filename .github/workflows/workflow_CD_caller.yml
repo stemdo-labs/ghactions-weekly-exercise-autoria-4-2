@@ -5,6 +5,11 @@ on:
       image-to-build:
         required: true
         type: string
+permissions:
+  packages: write
+  contents: read
+  id-token: write
+  attestations: write
 jobs:
   #build:
     #runs-on: ubuntu-latest
