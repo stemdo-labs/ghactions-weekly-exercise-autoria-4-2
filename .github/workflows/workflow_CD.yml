@@ -17,7 +17,7 @@ jobs:
           
       - name: Curl
         run: |
-          docker exec nombretest curl 127.0.0.1
+          docker exec nombretest curl 0.0.0.0
 #          curl 127.0.0.1:8080
 
 
