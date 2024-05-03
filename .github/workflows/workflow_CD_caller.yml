@@ -5,9 +5,9 @@ on:
       image-to-build:
         required: true
         type: string
-permissions:
+#permissions:
   #packages: write
-  contents: read
+  #contents: read
   #id-token: write
   #attestations: write
 jobs:    
