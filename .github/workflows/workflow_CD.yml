@@ -11,3 +11,5 @@ jobs:
         run: |
           docker run -id -p 8080:80 dboffelli/ngnixtest
           curl localhost:8080
+      - env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
