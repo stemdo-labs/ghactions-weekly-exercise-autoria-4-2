@@ -36,8 +36,8 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: eperezstemdo/git-action-project-davie-elisa
-          tags: ${{ inputs.tag }}
+          images: eperezstemdo/git-action-project-davie-elisa/angulaImage
+          #tags: ${{ inputs.tag }}
           
       - name: Build container
         uses: docker/build-push-action@v5
@@ -45,3 +45,4 @@ jobs:
           context: .
           push: true
           tags: ${{ inputs.tag }}
+         
