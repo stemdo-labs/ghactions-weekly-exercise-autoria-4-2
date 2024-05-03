@@ -19,7 +19,8 @@ jobs:
     steps:
       - name: Deploy
         run: |
-          "docker run -id -p 8080:8080 ${{ inputs.image-to-build }}"
+          "docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot"
+          #${{ inputs.image-to-build }}"
           curl localhost:8080
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
