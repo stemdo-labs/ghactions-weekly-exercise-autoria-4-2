@@ -18,6 +18,8 @@ jobs:
         run: |
           docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot
           curl localhost:8080
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}          
   #call-reusable-workflow:
     #uses: ./.github/workflows/workflow_CD_reusable.yml
     #with:
