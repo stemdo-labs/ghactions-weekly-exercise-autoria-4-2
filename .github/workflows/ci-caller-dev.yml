@@ -21,8 +21,6 @@ jobs:
         
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          sparse-checkout: .
 
       
       - name: Get version from package.json
