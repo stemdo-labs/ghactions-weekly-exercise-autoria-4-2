@@ -1,0 +1,16 @@
+name: Workflow que realiza la distribución contínua
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-curl:
+    runs-on: ubuntu-latest
+    environment:
+      name: deploy
+    steps:
+      - name: Deploy
+        run: |
+          docker run -id -p 8080:8080  {{ inputs.image-to-build }}
+          curl localhost:8080
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
