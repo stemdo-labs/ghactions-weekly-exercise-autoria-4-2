@@ -23,4 +23,4 @@ jobs:
   call-reusable-workflow:
     uses: ./.github/workflows/workflow_CD_reusable.yml
     with:
-      image-to-build: eperezstemdo/angulaimage:${{ needs.build.outputs.tag }}
+      image-to-build: eperezstemdo/angularimage:${{ needs.build.outputs.tag }}
