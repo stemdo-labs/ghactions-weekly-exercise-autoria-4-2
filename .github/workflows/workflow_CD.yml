@@ -23,7 +23,7 @@ jobs:
       - name: Check http status code of production site
         uses: lakuapik/gh-actions-http-status@v1
         with:
-          sites: '["http://localhost:8080"]'
+          sites: '["http://localhost:80"]'
           expected: '[301, 200]'    
 
 
