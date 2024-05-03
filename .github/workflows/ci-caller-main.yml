@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      tag: ${{ steps.get_version.outputs.tag }} #tag será un output
+      tag: ${{ steps.get_version.outputs.version }} #tag será un output
 
     steps:
         
@@ -24,7 +24,9 @@ jobs:
       
       - name: Get version from package.json
         id: get_version
-        run: echo "::set-output name=tag::$(jq -r .version package.json)"
+        run: | 
+          echo "version=$(jq -r .version package.json)" >> "$GITHUB_OUTPUT"
+          echo $GITHUB_OUTPUT
 
 
   call-ci-workflow:
