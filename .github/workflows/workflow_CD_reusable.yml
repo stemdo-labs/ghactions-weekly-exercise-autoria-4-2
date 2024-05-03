@@ -21,6 +21,7 @@ jobs:
         run: |
           ls
           docker run -id -p 8080:8080 ${{ inputs.image-to-build }}
+          ls
           curl localhost:8080
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
