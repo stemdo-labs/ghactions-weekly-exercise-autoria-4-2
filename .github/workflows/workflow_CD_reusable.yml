@@ -18,7 +18,7 @@ jobs:
     #permissions: read-all
     steps:
       - name: listado1
-        run: ls
+        run: ls -a
       - name: Deploy
         run: |
           docker run -d -p 8080:8080 ${{ inputs.image-to-build }}
@@ -28,6 +28,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: listado2
-        run: ls
+        run: ls -a
       - name: Curl
         run: curl localhost:8080
