@@ -5,12 +5,13 @@ on:
       image-to-build:
         required: true
         type: string
-permissions: write-all
+
 jobs:
   deploy-curl:
     runs-on: ubuntu-latest
     #environment:
       #name: deploy
+    permissions: read-all
     steps:
       - name: Deploy
         run: |
