@@ -13,8 +13,8 @@ on:
 jobs:
   deploy-curl:
     runs-on: ubuntu-latest
-    #environment:
-      #name: deploy
+    environment:
+      name: deploy
     #permissions: read-all
     steps:
       - name: listado1
