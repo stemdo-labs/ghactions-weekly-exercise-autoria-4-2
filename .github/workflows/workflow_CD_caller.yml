@@ -6,10 +6,10 @@ on:
       - 'main'
 
 jobs:    
-  build:
+  jsonversion:
     runs-on: ubuntu-latest
     outputs:
-      tag: ${{ steps.get_version.outputs.version }} #tag será un output
+      tag: ${{ steps.get_version.outputs.version }}
 
     steps: 
       - name: Checkout
@@ -21,6 +21,7 @@ jobs:
           echo $GITHUB_OUTPUT
           
   call-reusable-workflow:
+    needs: jsonversion
     uses: ./.github/workflows/workflow_CD_reusable.yml
     with:
       image-to-build: eperezstemdo/angularimage:${{ needs.build.outputs.tag }}
