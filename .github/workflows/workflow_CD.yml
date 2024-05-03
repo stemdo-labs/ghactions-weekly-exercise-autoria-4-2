@@ -10,7 +10,14 @@ jobs:
       - name: Deploy
         run: |
           docker run -id -p 8080:80 dboffelli/ngnixtest
-          curl localhost:8080
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          #curl localhost:8080
+        #env:
+          #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Check the deployed service URL
+        uses: jtalk/url-health-check-action@v4
+        with:
+      # Check the following URLs one by one sequentially
+          url: localhost:8080
+
 
