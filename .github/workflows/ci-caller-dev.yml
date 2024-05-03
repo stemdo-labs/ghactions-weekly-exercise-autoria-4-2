@@ -24,7 +24,7 @@ jobs:
       
       - name: Get version from package.json
         id: get_version
-        run: echo "::set-output name=tag::$(jq -r .version package.json)"
+        run: echo "::set-output name=tag::$(jq -r .version package.json)-snapshot"
 
 
   call-ci-workflow:
