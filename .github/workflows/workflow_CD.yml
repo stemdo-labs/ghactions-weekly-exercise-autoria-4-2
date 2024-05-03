@@ -9,7 +9,7 @@ jobs:
     steps:
       - name: Deploy
         run: |
-          docker run -id -p 8080:80 dboffelli/ngnixtest
+          docker run -id -p 8080:80 --name nombretest dboffelli/ngnixtest
           docker ps
           #curl localhost:8080
         #env:
@@ -17,6 +17,9 @@ jobs:
           
       - name: Curl
         run: |
-          curl 127.0.0.1:8080
+          docker exec nombretest curl localhost
+#          curl 127.0.0.1:8080
+
+
 
 
