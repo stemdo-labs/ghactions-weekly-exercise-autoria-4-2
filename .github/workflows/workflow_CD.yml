@@ -20,7 +20,7 @@ jobs:
 #          curl 0.0.0.0:8080
       - uses: dedene/curl@v1
         with:
-          url: https://0.0.0.0:8080
+          url: https://0.0.0.0:80
           args: -v
 
 
