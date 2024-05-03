@@ -4,7 +4,11 @@ on:
     types: [closed]
     branches: 
       - 'main'
-
+permissions:
+  packages: write
+  contents: read
+  id-token: write
+  attestations: write
 jobs:    
   jsonversion:
     runs-on: ubuntu-latest
