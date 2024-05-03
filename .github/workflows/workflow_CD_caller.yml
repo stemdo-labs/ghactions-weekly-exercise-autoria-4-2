@@ -1,22 +1,22 @@
 name: Workflow CD caller
 on:
   workflow_dispatch:
-    inputs:
-      image-to-build:
-        required: true
-        type: string
-permissions:
-  packages: write
-  contents: read
-  id-token: write
-  attestations: write
+    #inputs:
+      #image-to-build:
+        #required: true
+        #type: string
+#permissions:
+  #packages: write
+  #contents: read
+  #id-token: write
+  #attestations: write
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy
         run: |
-          "docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot"
+          docker run -id -p 8080:8080 eperezstemdo/angulaimage:0.0.0-snapshot
           curl localhost:8080
   #call-reusable-workflow:
     #uses: ./.github/workflows/workflow_CD_reusable.yml
