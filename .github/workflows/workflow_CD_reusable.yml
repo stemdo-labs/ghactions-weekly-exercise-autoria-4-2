@@ -1,4 +1,4 @@
-name: Workflow que realiza la distribución contínua
+name: Workflow CD reusable
 on:
   workflow_call:
     inputs:
