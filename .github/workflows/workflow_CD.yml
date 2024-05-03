@@ -15,8 +15,8 @@ jobs:
         #env:
           #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
-#      - name: Curl
-#        run: |
-#          curl localhost:8080
+      - name: Curl
+        run: |
+          curl 0.0.0.0:8080
 
 
