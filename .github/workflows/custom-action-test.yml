@@ -31,7 +31,7 @@ jobs:
 
 
   call-ci-workflow:
-    needs: build #para traer el output
+    needs: get_version #para traer el output
     uses: ./.github/workflows/ci-reusable.yml
     with:
       tag: ${{ needs.get_version.outputs.tag }} #input para el workflow reusable: la versión del proyecto
