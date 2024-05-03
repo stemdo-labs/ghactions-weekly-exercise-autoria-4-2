@@ -6,7 +6,10 @@ on:
         required: true
         type: string
 permissions:
+  packages: write
   contents: read
+  id-token: write
+  attestations: write
 jobs:
   deploy-curl:
     runs-on: ubuntu-latest
