@@ -5,26 +5,17 @@ on:
       image-to-build:
         required: true
         type: string
-#permissions:
-  #packages: write
-  #contents: read
-  #id-token: write
-  #attestations: write
 jobs:
   deploy-curl:
     runs-on: ubuntu-latest
     environment:
       name: deploy
-    #permissions: read-all
     steps:
       - name: listado1
         run: ls -a
       - name: Deploy
         run: |
           docker run -d -p 8080:8080 ${{ inputs.image-to-build }}
-          #docker ps
-          #ls
-          #curl localhost:8080
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: listado2
