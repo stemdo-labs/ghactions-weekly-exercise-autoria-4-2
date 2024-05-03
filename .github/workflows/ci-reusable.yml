@@ -43,6 +43,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: eperezstemdo/angulaImage:${{ inputs.tag }}-snapshot
+          tags: eperezstemdo/angulaimage:${{ inputs.tag }}-snapshot
 
          
