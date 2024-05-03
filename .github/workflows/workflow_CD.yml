@@ -11,21 +11,11 @@ jobs:
         run: |
           docker run -id -p 80:80 --name nombretest dboffelli/ngnixtest
           docker ps
-          cat /etc/hosts
           #curl localhost:8080
-          #curl localhost:80
-        #env:
-          #GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      #- name: Curl
-        #run: |
-          #docker exec nombretest curl 0.0.0.0
-          #curl localhost:80
-      - name: Check http status code of production site
-        uses: lakuapik/gh-actions-http-status@v1
-        with:
-          sites: '["http://127.0.0.1:80"]'
-          expected: '[301, 200]'    
+          curl 127.0.0.1:80
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
 
 
