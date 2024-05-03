@@ -17,11 +17,17 @@ jobs:
       #name: deploy
     #permissions: read-all
     steps:
+      - name: listado1
+        run: ls
       - name: Deploy
         run: |
           docker run -d -p 8080:8080 ${{ inputs.image-to-build }}
           #docker ps
           #ls
-          curl localhost:8080
+          #curl localhost:8080
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: listado2
+        run: ls
+      - name: Curl
+        run: curl localhost:8080
